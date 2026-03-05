@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRO SMS Service — โปรแกรมส่ง SMS ด้วยโมเด็มมือถือ Android</title>
+<meta name="description" content="PRO SMS Service โปรแกรมส่ง SMS จำนวนมากผ่านโมเด็มมือถือ Android ราคาประหยัด ไม่ผ่านเอเยนต์ ส่งตรงถึงผู้รับ รองรับ AIS DTAC TRUE">
+<meta name="keywords" content="โปรแกรมส่ง SMS, ส่ง SMS จำนวนมาก, SMS Marketing, SMS Modem, PSS Modem, ส่ง SMS ผ่านมือถือ Android">
+<meta name="author" content="PRO SMS Service">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.prosmss.com">
+<meta property="og:title" content="PRO SMS Service — โปรแกรมส่ง SMS ด้วยโมเด็มมือถือ">
+<meta property="og:description" content="ส่ง SMS จำนวนมากผ่านมือถือ Android ของคุณเอง ประหยัด ตรง ไม่ผ่านเอเยนต์">
+<meta property="og:url" content="https://www.prosmss.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Schema.org JSON-LD SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "PRO SMS Service",
+  "operatingSystem": "Windows 10, Windows 11",
+  "applicationCategory": "BusinessApplication",
+  "description": "โปรแกรมส่ง SMS จำนวนมากผ่านโมเด็มมือถือ Android ไม่ผ่านเอเยนต์ ส่งตรงจากซิมของคุณ",
+  "url": "https://www.prosmss.com",
+  "downloadUrl": "https://www.prosmss.com/#download",
+  "screenshot": "https://www.prosmss.com/screenshot.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "THB",
+    "description": "ทดลองใช้ฟรี"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "PRO SMS Service",
+    "url": "https://www.prosmss.com"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "120"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700;800&family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --c1: #1a7a8f;
+  --c2: #2e9eb3;
+  --c3: #3db8cf;
+  --c4: #e8f7fa;
+  --c5: #d0eef4;
+  --white: #ffffff;
+  --light: #f4fafc;
+  --dark: #0e3d48;
+  --text: #1e4a56;
+  --muted: #6b9aaa;
+  --border: rgba(46,158,179,0.15);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Sarabun',sans-serif; color:var(--text); background:var(--dark); overflow-x:hidden; }
+
+/* ── NAVBAR ── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  background:rgba(10,46,54,0.95);
+  backdrop-filter:blur(16px);
+  padding:0 6%;
+  display:flex; align-items:center; justify-content:space-between;
+  height:64px;
+  border-bottom:1px solid rgba(46,158,179,0.2);
+}
+.nav-logo {
+  display:flex; align-items:center; gap:10px;
+  font-family:'Kanit',sans-serif; font-weight:700; font-size:1.15rem;
+  color:white; text-decoration:none;
+}
+.nav-logo .logo-icon {
+  width:36px; height:36px;
+  background:linear-gradient(135deg,var(--c1),var(--c2));
+  border-radius:10px; display:flex; align-items:center;
+  justify-content:center; font-size:1.1rem;
+}
+.nav-logo .brand { color:var(--c1); }
+.nav-links { display:flex; gap:28px; list-style:none; align-items:center; }
+.nav-links a {
+  color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.9rem;
+  font-family:'Kanit',sans-serif; transition:color 0.2s;
+}
+.nav-links a:hover { color:var(--c1); }
+.nav-cta {
+  background:linear-gradient(135deg,var(--c1),var(--c2)) !important;
+  color:white !important; padding:9px 20px !important;
+  border-radius:10px; font-weight:600 !important;
+  box-shadow:0 4px 14px rgba(46,158,179,0.3);
+}
+
+/* ── HERO ── */
+#hero {
+  min-height:100vh;
+  background:linear-gradient(160deg, #0a2e36 0%, #0f4a58 50%, #1a7a8f 100%);
+  display:flex; align-items:center;
+  padding:100px 6% 80px;
+  position:relative; overflow:hidden;
+}
+#hero::before {
+  content:'';
+  position:absolute; top:-300px; right:-200px;
+  width:800px; height:800px;
+  background:radial-gradient(circle, rgba(46,158,179,0.15) 0%, transparent 65%);
+  border-radius:50%;
+}
+#hero::after {
+  content:'';
+  position:absolute; bottom:-200px; left:-100px;
+  width:600px; height:600px;
+  background:radial-gradient(circle, rgba(26,122,143,0.1) 0%, transparent 65%);
+  border-radius:50%;
+}
+.hero-content {
+  max-width:1200px; margin:0 auto;
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:60px; align-items:center; position:relative; z-index:1; width:100%;
+}
+.hero-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(46,158,179,0.2);
+  border:1px solid rgba(46,158,179,0.4);
+  color:var(--c2); padding:7px 16px;
+  border-radius:100px; font-size:0.82rem;
+  margin-bottom:22px; font-family:'Kanit',sans-serif; font-weight:600;
+}
+.hero-title {
+  font-family:'Kanit',sans-serif;
+  font-size:clamp(2rem,3.8vw,3rem);
+  font-weight:800; line-height:1.2;
+  color:white; margin-bottom:10px;
+}
+.hero-title .hl {
+  background:linear-gradient(135deg,var(--c1),var(--c2));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.hero-sub {
+  font-size:1.05rem; color:rgba(255,255,255,0.65);
+  line-height:1.8; margin-bottom:36px; max-width:460px;
+}
+.hero-btns { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px; }
+.btn-primary {
+  display:inline-flex; align-items:center; gap:8px;
+  background:linear-gradient(135deg,var(--c1),var(--c2));
+  color:white; padding:13px 26px; border-radius:12px;
+  text-decoration:none; font-family:'Kanit',sans-serif;
+  font-weight:600; font-size:0.95rem;
+  box-shadow:0 6px 20px rgba(46,158,179,0.35);
+  transition:transform 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(46,158,179,0.4); }
+.btn-outline {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(255,255,255,0.1); border:2px solid rgba(255,255,255,0.3);
+  color:white; padding:11px 24px; border-radius:12px;
+  text-decoration:none; font-family:'Kanit',sans-serif;
+  font-weight:600; font-size:0.95rem;
+  transition:background 0.2s;
+}
+.btn-outline:hover { background:rgba(255,255,255,0.2); }
+.hero-trust {
+  display:flex; gap:20px; flex-wrap:wrap;
+}
+.trust-item {
+  display:flex; align-items:center; gap:6px;
+  font-size:0.82rem; color:rgba(255,255,255,0.6);
+  font-family:'Kanit',sans-serif;
+}
+.trust-item .dot { width:6px; height:6px; background:var(--c2); border-radius:50%; }
+
+/* mockup */
+.hero-visual { display:flex; justify-content:center; }
+.mockup-wrap {
+  background:rgba(255,255,255,0.06); border-radius:20px; padding:32px;
+  box-shadow:0 24px 64px rgba(0,0,0,0.3), 0 4px 20px rgba(46,158,179,0.2);
+  border:1px solid rgba(46,158,179,0.25); width:100%; max-width:460px;
+  backdrop-filter:blur(12px);
+}
+.mockup-bar { display:flex; gap:6px; margin-bottom:18px; }
+.mockup-dot { width:10px; height:10px; border-radius:50%; }
+.mockup-dot:nth-child(1){background:#ff5f57;}
+.mockup-dot:nth-child(2){background:#febc2e;}
+.mockup-dot:nth-child(3){background:#28c840;}
+.mockup-header {
+  display:flex; align-items:center; gap:10px; margin-bottom:18px;
+  padding-bottom:14px; border-bottom:1px solid rgba(46,158,179,0.2);
+}
+.mockup-logo {
+  width:32px; height:32px;
+  background:linear-gradient(135deg,var(--c1),var(--c2));
+  border-radius:8px; display:flex; align-items:center; justify-content:center;
+  font-size:0.9rem;
+}
+.mockup-header-text strong { font-family:'Kanit',sans-serif; font-size:0.85rem; color:white; display:block; }
+.mockup-header-text span { font-size:0.75rem; color:rgba(255,255,255,0.5); }
+.mockup-stat {
+  display:flex; justify-content:space-between; align-items:center;
+  background:var(--light); border-radius:10px;
+  padding:10px 14px; margin-bottom:8px;
+  border:1px solid var(--border);
+}
+.mockup-stat-label { font-size:0.8rem; color:rgba(255,255,255,0.5); }
+.mockup-stat-value { font-family:'Kanit',sans-serif; font-weight:700; color:var(--c2); font-size:0.9rem; }
+.mockup-progress-wrap { margin:14px 0 6px; }
+.mockup-progress-label {
+  display:flex; justify-content:space-between;
+  font-size:0.75rem; color:rgba(255,255,255,0.5); margin-bottom:6px;
+  font-family:'Kanit',sans-serif;
+}
+.mockup-bar2 { background:rgba(255,255,255,0.1); border-radius:100px; height:7px; overflow:hidden; }
+.mockup-bar2-fill {
+  height:100%; width:68%;
+  background:linear-gradient(90deg,var(--c1),var(--c2));
+  border-radius:100px;
+  animation:prog 2.5s ease-in-out infinite alternate;
+}
+@keyframes prog { from{width:40%} to{width:85%} }
+.mockup-logs { margin-top:14px; background:rgba(255,255,255,0.05); border-radius:10px; padding:12px; }
+.mockup-log-row { display:flex; align-items:center; gap:8px; font-size:0.75rem; padding:3px 0; }
+.log-ok { color:#16a34a; }
+.log-sending { color:var(--c2); }
+.log-num { color:var(--muted); flex:1; }
+
+/* ── STATS ── */
+#stats {
+  background:linear-gradient(135deg,var(--c1),var(--c2));
+  padding:60px 6%;
+}
+.stats-grid {
+  max-width:1000px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(4,1fr); gap:20px;
+}
+.stat-item { text-align:center; }
+.stat-num {
+  font-family:'Kanit',sans-serif; font-weight:800;
+  font-size:clamp(1.8rem,3vw,2.6rem); color:white; line-height:1;
+  margin-bottom:6px;
+}
+.stat-num span { font-size:0.6em; opacity:0.8; }
+.stat-label { color:rgba(255,255,255,0.75); font-size:0.85rem; }
+
+/* ── FEATURES ── */
+#features { padding:90px 6%; background:var(--dark); }
+.features-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:24px; margin-top:52px;
+}
+.feat-card {
+  background:rgba(255,255,255,0.04); border-radius:16px; padding:28px;
+  border:1px solid var(--border);
+  transition:transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.feat-card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 12px 36px rgba(46,158,179,0.2);
+  border-color:var(--c2);
+  background:rgba(46,158,179,0.08);
+}
+.feat-icon {
+  width:52px; height:52px;
+  background:rgba(46,158,179,0.15);
+  border-radius:14px; display:flex; align-items:center; justify-content:center;
+  font-size:1.4rem; margin-bottom:16px;
+  border:1px solid var(--border);
+}
+.feat-card h3 {
+  font-family:'Kanit',sans-serif; font-weight:700;
+  font-size:1rem; color:white; margin-bottom:8px;
+}
+.feat-card p { font-size:0.88rem; color:var(--muted); line-height:1.7; }
+
+/* ── HOW IT WORKS ── */
+#how { background:#0b3541; padding:90px 6%; }
+.steps {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:28px; margin-top:52px; position:relative;
+}
+.steps::before {
+  content:'';
+  position:absolute; top:48px;
+  left:calc(16.66% + 20px); right:calc(16.66% + 20px);
+  height:2px;
+  background:linear-gradient(90deg,var(--c1),var(--c2));
+}
+.step {
+  background:rgba(255,255,255,0.04); border-radius:16px; padding:30px 24px;
+  text-align:center; position:relative; z-index:1;
+  box-shadow:0 4px 16px rgba(0,0,0,0.2);
+  border:1px solid var(--border);
+  transition:transform 0.3s, box-shadow 0.3s;
+}
+.step:hover { transform:translateY(-6px); box-shadow:0 12px 36px rgba(46,158,179,0.2); background:rgba(46,158,179,0.08); }
+.step-num {
+  position:absolute; top:-12px; left:50%; transform:translateX(-50%);
+  background:linear-gradient(135deg,var(--c1),var(--c2));
+  color:white; width:28px; height:28px;
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-family:'Kanit',sans-serif; font-weight:700; font-size:0.78rem;
+  box-shadow:0 4px 12px rgba(46,158,179,0.3);
+}
+.step-icon {
+  width:68px; height:68px;
+  background:rgba(46,158,179,0.15);
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  margin:0 auto 18px; font-size:1.7rem;
+  border:2px solid var(--border);
+}
+.step h3 { font-family:'Kanit',sans-serif; font-weight:700; font-size:1rem; color:white; margin-bottom:8px; }
+.step p { color:var(--muted); font-size:0.87rem; line-height:1.7; }
+
+/* ── DOWNLOAD ── */
+#download { padding:90px 6%; background:var(--dark); }
+.download-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:52px; }
+.dl-card {
+  background:rgba(255,255,255,0.04); border-radius:20px; padding:36px;
+  border:1px solid var(--border);
+  transition:border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+.dl-card:hover { border-color:var(--c2); transform:translateY(-4px); box-shadow:0 16px 48px rgba(46,158,179,0.2); background:rgba(46,158,179,0.08); }
+.dl-card-header { display:flex; align-items:center; gap:16px; margin-bottom:20px; }
+.dl-card-icon {
+  width:60px; height:60px;
+  background:linear-gradient(135deg,var(--c1),var(--c2));
+  border-radius:16px; display:flex; align-items:center; justify-content:center;
+  font-size:1.8rem; flex-shrink:0;
+  box-shadow:0 6px 18px rgba(46,158,179,0.3);
+}
+.dl-card-header h3 { font-family:'Kanit',sans-serif; font-weight:700; font-size:1.2rem; color:white; }
+.dl-card-header span { font-size:0.8rem; color:rgba(255,255,255,0.5); }
+.dl-card p { color:var(--muted); font-size:0.88rem; line-height:1.7; margin-bottom:20px; }
+.dl-tags { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px; }
+.dl-tag {
+  background:rgba(255,255,255,0.06); border:1px solid var(--border);
+  color:var(--c2); padding:4px 12px;
+  border-radius:100px; font-size:0.75rem; font-family:'Kanit',sans-serif;
+}
+.btn-dl {
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  background:linear-gradient(135deg,var(--c1),var(--c2));
+  color:white; padding:13px 24px; border-radius:12px;
+  text-decoration:none; font-family:'Kanit',sans-serif; font-weight:600;
+  box-shadow:0 6px 18px rgba(46,158,179,0.3);
+  transition:transform 0.2s, box-shadow 0.2s;
+}
+.btn-dl:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(46,158,179,0.4); }
+
+/* ── CONTACT ── */
+#contact { padding:90px 6%; background:#0b3541; }
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:52px; align-items:start; }
+.contact-items { display:flex; flex-direction:column; gap:12px; }
+.contact-item {
+  display:flex; align-items:center; gap:16px;
+  background:rgba(255,255,255,0.04); border-radius:14px; padding:16px 20px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.2);
+  border:1px solid var(--border);
+  text-decoration:none; color:var(--text);
+  transition:border-color 0.2s, transform 0.2s;
+}
+.contact-item:hover { border-color:var(--c2); transform:translateX(4px); }
+.contact-icon {
+  width:44px; height:44px; border-radius:12px;
+  background:linear-gradient(135deg,var(--c1),var(--c2));
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem; flex-shrink:0;
+}
+.contact-item strong { display:block; font-family:'Kanit',sans-serif; font-weight:600; font-size:0.88rem; color:white; }
+.contact-item span { font-size:0.82rem; color:var(--muted); }
+.contact-qr {
+  background:rgba(255,255,255,0.04); border-radius:20px; padding:36px;
+  text-align:center; border:1px solid var(--border);
+  box-shadow:0 4px 20px rgba(0,0,0,0.2);
+}
+.qr-box {
+  width:140px; height:140px; margin:0 auto 20px;
+  background:rgba(46,158,179,0.15);
+  border-radius:16px; display:flex; align-items:center; justify-content:center;
+  font-size:3.5rem; border:2px solid var(--border);
+}
+.contact-qr h3 { font-family:'Kanit',sans-serif; font-weight:700; color:white; margin-bottom:6px; }
+.contact-qr p { color:var(--muted); font-size:0.85rem; line-height:1.7; }
+
+/* ── FOOTER ── */
+footer {
+  background:var(--dark); color:rgba(255,255,255,0.45);
+  text-align:center; padding:28px 6%;
+  font-size:0.82rem; border-top:1px solid rgba(46,158,179,0.15);
+}
+footer a { color:var(--c2); text-decoration:none; }
+
+/* ── SECTION COMMON ── */
+.section-inner { max-width:1200px; margin:0 auto; }
+.section-tag {
+  font-family:'Kanit',sans-serif; font-size:0.78rem;
+  color:var(--c2); text-transform:uppercase; letter-spacing:3px; margin-bottom:10px;
+}
+.section-title {
+  font-family:'Kanit',sans-serif; font-size:clamp(1.5rem,2.8vw,2.2rem);
+  font-weight:700; color:white; line-height:1.3; margin-bottom:14px;
+}
+.section-desc { color:var(--muted); font-size:0.95rem; line-height:1.8; max-width:520px; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+.fu { animation:fadeUp 0.6s ease forwards; }
+.d1{animation-delay:0.1s;opacity:0}
+.d2{animation-delay:0.25s;opacity:0}
+.d3{animation-delay:0.4s;opacity:0}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero-content{grid-template-columns:1fr}
+  .hero-visual{display:none}
+  .steps{grid-template-columns:1fr}
+  .steps::before{display:none}
+  .features-grid{grid-template-columns:1fr 1fr}
+  .download-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .nav-links{display:none}
+}
+@media(max-width:500px){
+  .features-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="javascript:void(0)" data-target="hero" class="nav-logo">
+    <div class="logo-icon">📡</div>
+    <span class="brand">PRO SMS Service</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="javascript:void(0)" data-target="features">ฟีเจอร์</a></li>
+    <li><a href="javascript:void(0)" data-target="how">วิธีใช้</a></li>
+    <li><a href="javascript:void(0)" data-target="download">ดาวน์โหลด</a></li>
+    <li><a href="javascript:void(0)" data-target="contact">ติดต่อ</a></li>
+    <li><a href="javascript:void(0)" data-target="download" class="nav-cta">⬇ ดาวน์โหลดฟรี</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <div>
+      <div class="hero-badge fu">📡 โปรแกรมส่ง SMS ผ่านมือถือ Android</div>
+      <h1 class="hero-title fu d1">
+        ส่ง SMS จำนวนมาก<br>
+        <span class="hl">ไม่ผ่านเอเยนต์</span><br>
+        ประหยัดกว่าหลายเท่า
+      </h1>
+      <p class="hero-sub fu d2">
+        ใช้ซิมมือถือของคุณเองเป็น SMS Modem<br>
+        รองรับ AIS • DTAC • TRUE ส่งตรงถึงผู้รับ ไม่มีค่าบริการรายเดือน
+      </p>
+      <div class="hero-btns fu d3">
+        <a href="javascript:void(0)" data-target="download" class="btn-primary">⬇ ดาวน์โหลดโปรแกรม</a>
+        <a href="javascript:void(0)" data-target="how" class="btn-outline">▶ ดูวิธีใช้งาน</a>
+      </div>
+      <div class="hero-trust fu d3">
+        <span class="trust-item"><span class="dot"></span>ฟรีทดลองใช้</span>
+        <span class="trust-item"><span class="dot"></span>Windows 10/11</span>
+        <span class="trust-item"><span class="dot"></span>Android 8.0+</span>
+        <span class="trust-item"><span class="dot"></span>ติดตั้งง่าย</span>
+      </div>
+    </div>
+    <div class="hero-visual fu d2">
+      <div class="mockup-wrap">
+        <div class="mockup-bar">
+          <div class="mockup-dot"></div>
+          <div class="mockup-dot"></div>
+          <div class="mockup-dot"></div>
+        </div>
+        <div class="mockup-header">
+          <div class="mockup-logo">📋</div>
+          <div class="mockup-header-text">
+            <strong>PRO SMS Service</strong>
+            <span>กำลังส่ง SMS...</span>
+          </div>
+        </div>
+        <div class="mockup-stat">
+          <span class="mockup-stat-label">📱 อุปกรณ์</span>
+          <span class="mockup-stat-value">192.168.1.1</span>
+        </div>
+        <div class="mockup-stat">
+          <span class="mockup-stat-label">📨 ส่งแล้ว</span>
+          <span class="mockup-stat-value">342 / 500</span>
+        </div>
+        <div class="mockup-stat">
+          <span class="mockup-stat-label">✅ สำเร็จ</span>
+          <span class="mockup-stat-value" style="color:#16a34a">338</span>
+        </div>
+        <div class="mockup-progress-wrap">
+          <div class="mockup-progress-label">
+            <span>ความคืบหน้า</span><span>68%</span>
+          </div>
+          <div class="mockup-bar2"><div class="mockup-bar2-fill"></div></div>
+        </div>
+        <div class="mockup-logs">
+          <div class="mockup-log-row"><span class="log-ok">✅</span><span class="log-num">08X-XXX-XXXX</span><span class="log-ok">สำเร็จ</span></div>
+          <div class="mockup-log-row"><span class="log-ok">✅</span><span class="log-num">08X-XXX-XXXX</span><span class="log-ok">สำเร็จ</span></div>
+          <div class="mockup-log-row"><span class="log-sending">⏳</span><span class="log-num">08X-XXX-XXXX</span><span class="log-sending">กำลังส่ง...</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-num">1M<span>+</span></div>
+      <div class="stat-label">SMS ที่ส่งสำเร็จ</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">500<span>+</span></div>
+      <div class="stat-label">ผู้ใช้งานทั่วประเทศ</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">99<span>%</span></div>
+      <div class="stat-label">อัตราส่งสำเร็จ</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">3<span>เครือข่าย</span></div>
+      <div class="stat-label">AIS • DTAC • TRUE</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="section-inner">
+    <div class="section-tag">ฟีเจอร์</div>
+    <h2 class="section-title">ทุกอย่างที่ต้องการสำหรับ SMS Marketing</h2>
+    <p class="section-desc">ออกแบบมาเพื่อธุรกิจ SME ที่ต้องการส่ง SMS จำนวนมากในราคาประหยัด</p>
+    <div class="features-grid">
+      <div class="feat-card">
+        <div class="feat-icon">📊</div>
+        <h3>นำเข้าจาก Excel / TXT</h3>
+        <p>รองรับไฟล์ .xlsx และ .txt นำเข้าเบอร์โทรได้หลายพันรายชื่อในคลิกเดียว</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📱</div>
+        <h3>รองรับหลายอุปกรณ์</h3>
+        <p>เชื่อมต่อมือถือ Android หลายเครื่องพร้อมกัน เพิ่มความเร็วในการส่ง</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📋</div>
+        <h3>ประวัติการส่งครบถ้วน</h3>
+        <p>บันทึกประวัติการส่งทุกรายการ Export Excel ได้ทันที</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🔄</div>
+        <h3>ส่งต่อเนื่องไม่หลุด</h3>
+        <p>ระบบ Ping อัตโนมัติทุก 8 นาที ป้องกัน WiFi หลุดระหว่างส่ง</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">💳</div>
+        <h3>ระบบเครดิต</h3>
+        <p>เติมเครดิตผ่าน Voucher Code ไม่มีค่าบริการรายเดือน จ่ายตามที่ใช้จริง</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🔒</div>
+        <h3>ปลอดภัย 1 เครื่อง/บัญชี</h3>
+        <p>ระบบล็อก Device ID ป้องกันการใช้งานซ้ำซ้อน บัญชีของคุณปลอดภัย</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="section-inner">
+    <div class="section-tag">วิธีใช้งาน</div>
+    <h2 class="section-title">เริ่มส่ง SMS ได้ใน 3 ขั้นตอน</h2>
+    <p class="section-desc">ติดตั้งง่าย ใช้งานได้ทันที ไม่ต้องมีความรู้เทคนิค</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-icon">💻</div>
+        <h3>ติดตั้งโปรแกรม PC</h3>
+        <p>ดาวน์โหลดและติดตั้ง PRO SMS Service บน Windows 10/11 ของคุณ</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-icon">📡</div>
+        <h3>ติดตั้ง PSS Modem</h3>
+        <p>ติดตั้งแอป PSS Modem บนมือถือ Android เชื่อมต่อ WiFi เดียวกันกับ PC</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-icon">📨</div>
+        <h3>นำเข้ารายชื่อ แล้วส่ง!</h3>
+        <p>นำเข้าเบอร์จาก Excel หรือ TXT พิมพ์ข้อความ แล้วกดส่งได้เลย</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section id="download">
+  <div class="section-inner">
+    <div class="section-tag">ดาวน์โหลด</div>
+    <h2 class="section-title">ดาวน์โหลดและเริ่มใช้งานได้เลย</h2>
+    <p class="section-desc">ต้องติดตั้งทั้ง 2 ส่วน — โปรแกรม PC และแอป Android</p>
+    <div class="download-grid">
+      <div class="dl-card">
+        <div class="dl-card-header">
+          <div class="dl-card-icon">🖥️</div>
+          <div>
+            <h3>PRO SMS Service</h3>
+            <span>โปรแกรมหลักสำหรับ Windows</span>
+          </div>
+        </div>
+        <p>ศูนย์ควบคุมการส่ง SMS นำเข้ารายชื่อ ตั้งข้อความ ดูประวัติ และจัดการเครดิต</p>
+        <div class="dl-tags">
+          <span class="dl-tag">Windows 10/11</span>
+          <span class="dl-tag">64-bit</span>
+          <span class="dl-tag">v1.0.0</span>
+          <span class="dl-tag">ฟรี</span>
+        </div>
+        <a href="#" class="btn-dl">⬇ ดาวน์โหลด .exe</a>
+      </div>
+      <div class="dl-card">
+        <div class="dl-card-header">
+          <div class="dl-card-icon">📡</div>
+          <div>
+            <h3>PSS Modem</h3>
+            <span>แอป Android SMS Gateway</span>
+          </div>
+        </div>
+        <p>ทำหน้าที่เป็น SMS Modem รับคำสั่งจาก PC แล้วส่ง SMS ผ่านซิมมือถือของคุณ</p>
+        <div class="dl-tags">
+          <span class="dl-tag">Android 8.0+</span>
+          <span class="dl-tag">APK</span>
+          <span class="dl-tag">v1.0.0</span>
+          <span class="dl-tag">ฟรี</span>
+        </div>
+        <a href="#" class="btn-dl">⬇ ดาวน์โหลด .apk</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-tag">ติดต่อเรา</div>
+    <h2 class="section-title">มีคำถาม? ทีมงานพร้อมช่วยเหลือ</h2>
+    <p class="section-desc">ตอบกลับทุกวัน ผ่าน LINE หรือ Email</p>
+    <div class="contact-grid">
+      <div class="contact-items">
+        <a href="https://line.me/ti/p/@prosmss" class="contact-item">
+          <div class="contact-icon">💬</div>
+          <div><strong>LINE Official</strong><span>@prosmss — ตอบกลับภายใน 24 ชม.</span></div>
+        </a>
+        <a href="https://www.prosmss.com" class="contact-item">
+          <div class="contact-icon">🌐</div>
+          <div><strong>เว็บไซต์</strong><span>www.prosmss.com</span></div>
+        </a>
+        <a href="mailto:support@prosmss.com" class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div><strong>Email</strong><span>support@prosmss.com</span></div>
+        </a>
+      </div>
+      <div class="contact-qr">
+        <div class="qr-box">📱</div>
+        <h3>สแกน QR เพิ่มเพื่อน LINE</h3>
+        <p>@prosmss<br>รับข่าวสาร อัปเดต และโปรโมชั่น<br>ก่อนใคร</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <a href="https://www.prosmss.com">PRO SMS Service</a> — โปรแกรมส่ง SMS ด้วยโมเด็มมือถือ Android | <a href="https://www.prosmss.com">www.prosmss.com</a> | LINE: <a href="https://line.me/ti/p/@prosmss">@prosmss</a></p>
+</footer>
+
+
+<script>
+document.querySelectorAll('a[data-target]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    e.preventDefault();
+    const id = this.getAttribute('data-target');
+    const target = document.getElementById(id);
+    if (target) {
+      const offset = 70;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
